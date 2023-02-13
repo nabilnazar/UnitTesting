@@ -1,6 +1,5 @@
 package com.meghamlabs.unittesting.ui
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -45,7 +44,8 @@ class ShoppingViewModel @Inject constructor(
         repository.insertShoppingItem(shoppingItem)
     }
 
-    fun insertShoppingItem(name: String,amountString: String,priceString: String) ={
+    fun insertShoppingItem(name: String,amountString: String,priceString: String) {
+
     }
 
     fun searchForImage(imageQuaery: String){
