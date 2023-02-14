@@ -2,6 +2,7 @@ package com.meghamlabs.unittesting.ui
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth.assertThat
+import com.meghamlabs.unittesting.MainCoroutineRule
 import com.meghamlabs.unittesting.getOrAwaitValueTest
 import com.meghamlabs.unittesting.other.Constants
 import com.meghamlabs.unittesting.other.Status
@@ -15,6 +16,9 @@ class ShoppingViewModelTest{
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
+
+    @get:Rule
+    var mainCoroutineRule = MainCoroutineRule()
 
     private lateinit var viewModel: ShoppingViewModel
 
@@ -84,17 +88,13 @@ class ShoppingViewModelTest{
 
 
     @Test
-    fun `insert shopping item with valid input, returns success`(){
-
-        viewModel.insertShoppingItem("name","9","3.0")
+    fun `insert shopping item with valid input, returns success`() {
+        viewModel.insertShoppingItem("vasu", "5", "3")
 
         val value = viewModel.insertShoppingItemStatus.getOrAwaitValueTest()
 
         assertThat(value.getContentIfNotHandled()?.status).isEqualTo(Status.SUCCESS)
-
     }
-
-
 
 
 
